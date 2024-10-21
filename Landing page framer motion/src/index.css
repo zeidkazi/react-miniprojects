@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('./assets/fonts/Geist-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('./assets/fonts/Geist-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Geist Sans';
+    src: url('./assets/fonts/Geist-UltraBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+  } 
+
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px; 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 20%); 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 40%); 
+    border-radius: 4px; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
