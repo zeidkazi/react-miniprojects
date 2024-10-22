@@ -19,14 +19,14 @@ const LoadingSuccess: React.FC<LoadingSuccessProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="absolute backdrop-filter backdrop-blur-sm bg-white/20 w-full h-full -translate-x-6 -translate-y-6 p-6 flex items-center justify-center"
+          className="absolute backdrop-filter backdrop-blur-sm bg-white/40 w-full h-full -translate-x-6 -translate-y-6 p-6 flex items-center justify-center"
         >
           <AnimatePresence>
             {isLoading && (
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.5 }}
+                exit={{ opacity: 0 }}
                 transition={{ delay: 0.1 }}
                 className=" size-[120px] rounded-full border-4 border-[#cfd9df] border-t-[#a1c4fd] border-t-4 animate-spin delay-100"
               ></motion.div>
