@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./components/ProductCard";
+import { RefreshCcw } from "lucide-react";
+import CardSkeleton from "./components/CardSkeleton";
+import CardModal from "./components/CardModal";
+import { AnimatePresence } from "motion/react";
 
 export interface ProductType {
   id: number;
@@ -51,6 +55,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [selectedCard, setSelectedCard] = useState<ProductType | null>(null);
 
   const fetchProducts = async () => {
     try {
@@ -79,14 +84,45 @@ const App = () => {
 
   return (
     <div className="w-full min-h-screen mx-auto p-2 font-geist">
-      <div className="flex items-center justify-center text-5xl font-bold mb-12">
+      <div className="flex items-center justify-center text-5xl font-bold mb-2 mt-2">
         Product Showcase
       </div>
-      <div className="w-full flex flex-wrap items-center justify-center gap-5">
-        {products.map((product) => (
-          <ProductCard product={product} />
-        ))}
+      <div className="flex justify-end -translate-x-36 pb-5">
+        <button
+          onClick={refreshProducts}
+          disabled={isLoading}
+          className="px-4 py-2 border rounded-3xl bg-blue-500 text-white  flex items-center justify-center gap-2 hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <RefreshCcw
+            size={19}
+            className={`shrink-0 ${isLoading ? "animate-spin " : ""}`}
+          />
+          <span>Refresh</span>
+        </button>
       </div>
+      {isLoading ? (
+        <>
+          <div className="w-full flex flex-wrap items-center justify-center gap-5">
+            {Array(6)
+              .fill(null)
+              .map((_) => (
+                <CardSkeleton />
+              ))}
+          </div>
+        </>
+      ) : (
+        <div className="w-full flex flex-wrap items-center justify-center gap-5">
+          {products.map((product) => (
+            <ProductCard product={product} setSelectedCard={setSelectedCard} />
+          ))}
+        </div>
+      )}
+
+      <AnimatePresence mode="wait">
+        {selectedCard && (
+          <CardModal product={selectedCard} setSelectedCard={setSelectedCard} />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
