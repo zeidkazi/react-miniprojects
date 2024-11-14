@@ -13,7 +13,7 @@ const CardModal = ({ product, setSelectedCard }: ModalType) => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
-  const nextImage = (e) => {
+  const nextImage = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     setImageLoaded(false);
     setCurrentImageIndex((prev) =>
@@ -21,7 +21,7 @@ const CardModal = ({ product, setSelectedCard }: ModalType) => {
     );
   };
 
-  const prevImage = (e) => {
+  const prevImage = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     setImageLoaded(false);
     setCurrentImageIndex((prev) =>
@@ -59,7 +59,7 @@ const CardModal = ({ product, setSelectedCard }: ModalType) => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={(e) => nextImage(e)}
+                onClick={nextImage}
                 className="absolute top-24 right-8 p-2 rounded-full bg-gray-200"
               >
                 <ArrowRight className="text-slate-600" />
@@ -67,7 +67,7 @@ const CardModal = ({ product, setSelectedCard }: ModalType) => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={(e) => prevImage(e)}
+                onClick={prevImage}
                 className="absolute top-24 left-8 p-2 rounded-full bg-gray-200"
               >
                 <ArrowLeft className="text-slate-600" />

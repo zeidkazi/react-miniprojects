@@ -61,7 +61,7 @@ const App = () => {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `https://dummyjson.com/products/category/smartphones?&limit=6&skip=${currentPage}`
+        `https://dummyjson.com/products?&limit=6&skip=${currentPage}`
       );
       const data = await response.json();
       setProducts(data?.products);
