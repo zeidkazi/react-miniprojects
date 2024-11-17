@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 
 const Background = () => (
-  <div className="fixed inset-0 overflow-hidden pointer-events-none">
+  <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
     {/* Gradient background */}
     <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-10 " />
 
