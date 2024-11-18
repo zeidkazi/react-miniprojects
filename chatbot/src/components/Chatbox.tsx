@@ -20,11 +20,23 @@ interface CodePropsTypes {
 }
 
 const Chatbox = ({ messages, isLoading }: ChatboxTypes) => {
-  console.log(isLoading);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isLoading]);
 
   return (
-    <div className="flex-1 w-full h-full max-h-full overflow-y-auto  p-2 z-10 flex flex-col gap-3">
+    <div className="flex-1 w-full h-full max-h-full overflow-y-auto overflow-x-hidden p-2 z-10 flex flex-col gap-3">
       <AnimatePresence mode="wait">
+        <AiChat text="Hey, how can I help you?" />
         {messages.map((message) =>
           message.role === "USER" ? (
             <>
@@ -44,6 +56,7 @@ const Chatbox = ({ messages, isLoading }: ChatboxTypes) => {
           </>
         ) : null}
       </AnimatePresence>
+      <div ref={messagesEndRef} />
     </div>
   );
 };
@@ -134,9 +147,9 @@ const UserChat = ({ text }: { text: string }) => {
         }}
         className="w-full flex items-center justify-end"
       >
-        <div className="bg-white w-fit max-w-[700px]  min-h-11 rounded-tl-xl rounded-br-xl rounded-bl-xl border-2 border-purple-200 flex items-center justify-center text-start  px-2 py-1">
+        <motion.div className="bg-white w-fit max-w-[700px]  min-h-11 rounded-tl-xl rounded-br-xl rounded-bl-xl border-2 border-purple-200 flex items-center justify-center text-start  px-2 py-1">
           {text}
-        </div>
+        </motion.div>
       </motion.div>
     </>
   );
