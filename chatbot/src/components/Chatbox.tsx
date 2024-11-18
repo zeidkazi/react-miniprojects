@@ -34,7 +34,7 @@ const Chatbox = ({ messages, isLoading }: ChatboxTypes) => {
   }, [messages, isLoading]);
 
   return (
-    <div className="flex-1 w-full h-full max-h-full overflow-y-auto overflow-x-hidden p-2 z-10 flex flex-col gap-3">
+    <div className="flex-1 w-full h-full max-h-full overflow-y-auto overflow-x-hidden p-2 z-10 flex flex-col gap-3 hidescrollbar">
       <AnimatePresence mode="wait">
         <AiChat text="Hey, how can I help you?" />
         {messages.map((message) =>

@@ -6,6 +6,10 @@ textarea::-webkit-scrollbar {
   display: none;
 }
 
+.hidescrollbar::-webkit-scrollbar {
+  display: none; 
+}
+
 @font-face {
   font-family: "Geist Sans";
   src: url("./assets/fonts/Geist-Regular.woff") format("woff");
