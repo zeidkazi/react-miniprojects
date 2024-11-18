@@ -24,9 +24,14 @@ const App = () => {
   const [messages, setMessages] = useState<MessageType[]>([]);
 
   const getResponse = async ({ input }: getResponseType) => {
+    if (!input.trim()) {
+      return;
+    }
     setIsLoading(true);
     const userMessage = { role: "USER", message: input };
+    const updatedMessages = [...messages, userMessage];
     setMessages((prev) => [...prev, userMessage]);
+
     try {
       const response = await fetch("https://api.cohere.com/v1/chat", {
         method: "POST",
@@ -41,6 +46,7 @@ const App = () => {
           model: "command-r-08-2024",
           preamble:
             "You are an AI-assistant chatbot. You are trained to assist users by providing thorough and helpful responses to their queries.",
+          chat_history: updatedMessages,
         }),
       });
 
@@ -60,7 +66,6 @@ const App = () => {
       setIsLoading(false);
     }
   };
-  console.log(messages);
 
   return (
     <>
