@@ -16,7 +16,7 @@ const Background = () => (
           <stop offset="100%" stopColor="#e11d48" stopOpacity="0.2" />
         </linearGradient>
       </defs>
-      {[...Array(5)].map((_, i) => (
+      {[...Array(10)].map((_, i) => (
         <motion.path
           key={i}
           d={`M0 ${80 + i * 40} Q${window.innerWidth / 2} ${120 + i * 40}, ${
@@ -28,7 +28,7 @@ const Background = () => (
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 1 }}
           transition={{
-            duration: 3 + i,
+            duration: 2 + i,
             repeat: Infinity,
             repeatType: "reverse",
             ease: "easeInOut",
