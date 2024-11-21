@@ -11,7 +11,7 @@ const Sidebar = ({ OpenSidebar }: SidebarTypes) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={() => OpenSidebar(false)}
-      className="absolute inset-0 bg-black/20 z-30 flex items-center"
+      className="absolute inset-0 bg-black/20 z-30 flex items-center overflow-hidden"
     >
       <motion.div
         initial={{
@@ -37,7 +37,13 @@ const Sidebar = ({ OpenSidebar }: SidebarTypes) => {
         onClick={(e) => e.stopPropagation()}
         className="h-full w-60 bg-white p-4 flex flex-col items-center gap-2"
       >
-        <div className="w-full flex items-center justify-between">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 0.2 }}
+          className="w-full flex items-center justify-between"
+        >
           <p className="text-xl md:text-2xl font-bold leading-relaxed">
             Nebul
             <span className="bg-gradient-to-r from-purple-500 to-blue-500 font-[900] bg-clip-text text-transparent">
@@ -46,8 +52,14 @@ const Sidebar = ({ OpenSidebar }: SidebarTypes) => {
             Chat
           </p>
           <X onClick={() => OpenSidebar(false)} className="cursor-pointer" />
-        </div>
-        <div className="w-full flex flex-col items-center gap-2 pt-5">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 0.2 }}
+          className="w-full flex flex-col items-center gap-2 pt-5"
+        >
           <motion.div
             whileTap={{ scale: 0.9 }}
             className="w-full py-1 px-2 rounded-xl flex items-center justify-start gap-2  md:hover:cursor-pointer md:hover:bg-gray-300 transition-colors delay-75 ease-in-out"
@@ -62,7 +74,7 @@ const Sidebar = ({ OpenSidebar }: SidebarTypes) => {
             <Settings />
             <p>Settings</p>
           </motion.div>
-        </div>
+        </motion.div>
       </motion.div>
     </motion.div>
   );

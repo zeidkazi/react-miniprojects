@@ -45,6 +45,7 @@ const InputField = ({ getResponse }: InputType) => {
       adjustHeight();
     }, 0);
   };
+  
 
   return (
     <motion.div
