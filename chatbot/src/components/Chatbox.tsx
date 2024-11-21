@@ -118,7 +118,7 @@ const AiChat = ({ text }: { text: string }) => {
         }}
         className="w-full flex items-center justify-start"
       >
-        <div className="bg-white w-fit max-w-[300px] md:max-w-5xl min-h-11 rounded-tr-xl rounded-br-xl rounded-bl-xl border-2 border-pink-200 flex items-center justify-center text-start  px-2 py-1">
+        <div className="bg-white w-fit max-w-full md:max-w-5xl min-h-11 rounded-tr-xl rounded-br-xl rounded-bl-xl border-2 border-pink-200 flex items-center justify-center text-start  px-2 py-1">
           <ReactMarkdown
             className="prose w-full overflow-x-auto"
             components={CodeBlock}
