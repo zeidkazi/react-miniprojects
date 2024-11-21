@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { AnimatePresence } from "motion/react";
 import Chatbox from "./components/Chatbox";
+import { Analytics } from "@vercel/analytics/react";
 
 export interface MessageType {
   role: string;
