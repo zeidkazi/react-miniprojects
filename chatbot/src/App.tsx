@@ -69,7 +69,8 @@ const App = () => {
 
   return (
     <>
-      <div className="h-screen max-h-screen w-full flex flex-col font-geist ">
+      <div className="h-dvh max-h-screen w-full flex flex-col font-geist ">
+        <Analytics />
         <Navbar OpenSidebar={setIsSidebar} />
         <AnimatePresence mode="wait">
           {isSidebar && <Sidebar OpenSidebar={setIsSidebar} />}

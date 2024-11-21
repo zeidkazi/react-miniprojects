@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.4.0",
     "lucide-react": "^0.456.0",
     "motion": "^11.11.15",
     "prism-react-renderer": "^2.4.0",
