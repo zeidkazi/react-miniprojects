@@ -41,6 +41,9 @@ const InputField = ({ getResponse }: InputType) => {
   const handleSubmit = () => {
     getResponse({ input: inputText });
     setInputText("");
+    setTimeout(() => {
+      adjustHeight();
+    }, 0);
   };
 
   return (
