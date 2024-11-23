@@ -5,6 +5,12 @@ interface DrawerPropType {
 }
 
 const Drawer = ({ setDrawer }: DrawerPropType) => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({ translateY: 0 });
+  }, []);
+
   return (
     <div
       onClick={() => setDrawer(false)}
