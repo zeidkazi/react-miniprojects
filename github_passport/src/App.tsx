@@ -20,7 +20,7 @@ const App = () => {
           Open Drawer
         </motion.button>
       </div>
-      <AnimatePresence mode="wai  t">
+      <AnimatePresence mode="wait">
         {isDrawerOpen && <Drawer setDrawer={setIsDrawerOpen} />}
       </AnimatePresence>
     </div>
