@@ -22,3 +22,11 @@
     font-weight: 900;
     font-style: normal;
   }
+
+
+  .hide-scrollbar {
+    overflow: auto; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+  
